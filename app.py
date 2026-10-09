@@ -19,27 +19,30 @@ conversions = {
     12: 0.70   
 }
 
-one_rep_max = gewicht / conversions[reps]    
+if gewicht!=0 and reps:
+    
 
-single_convert = lambda x: int(one_rep_max * conversions[x])
+    one_rep_max = gewicht / conversions[reps]    
 
-the_dict = {
-    1: single_convert(1),
-    2: single_convert(2),
-    3: single_convert(3),
-    4: single_convert(4),
-    5: single_convert(5),
-    6: single_convert(6),
-    8: single_convert(8),
-    10: single_convert(10),
-    12: single_convert(12),
-}
+    single_convert = lambda x: int(one_rep_max * conversions[x])
 
-df = pd.DataFrame({'gewicht':the_dict})
+    the_dict = {
+        1: single_convert(1),
+        2: single_convert(2),
+        3: single_convert(3),
+        4: single_convert(4),
+        5: single_convert(5),
+        6: single_convert(6),
+        8: single_convert(8),
+        10: single_convert(10),
+        12: single_convert(12),
+    }
+
+    df = pd.DataFrame({'Gewicht':the_dict})
 
 
-print(df)
+    print(df)
 
-st.table(df)
+    st.table(df)
 
 
